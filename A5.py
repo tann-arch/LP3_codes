@@ -37,10 +37,8 @@ def solve_n_queens(board, row, n):
     for col in range(n):
         if is_safe(board, row, col, n):
             board[row][col] = 1
-            print(f"Placing Queen at ({row}, {col})")
             if solve_n_queens(board, row + 1, n):
                 return True
-            print(f"Backtracking from ({row}, {col})")
             board[row][col] = 0  # Backtrack
     return False
 
@@ -55,8 +53,9 @@ def n_queens(n, first_queen_col):
         print("No solution exists for this configuration.")
 
 # Example usage
-n = 4
-first_queen_col = 1  # 0-indexed column position of first queen
+n = int(input("Enter the size of the board: "))
+
+first_queen_col = int(input("Enter the first queen column: ")) # 0-indexed column position of first queen
 print("=== N-Queens Problem using Backtracking ===")
 print(f"Board Size: {n} x {n}")
 print(f"First Queen placed at column {first_queen_col}\n")
